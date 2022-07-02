@@ -1,0 +1,16 @@
+.navcolor {
+    color: white;
+    cursor:pointer;
+    padding:5px;
+    text-decoration: none;
+}
+.nanbar-custom{
+    color: aqua;
+}
+.navcolor:hover{
+    background-color: rgb(177, 177, 177);
+    color: black;
+}
+.navbar-toggler-icon{
+    stroke: aliceblue;
+}

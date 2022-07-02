@@ -1,0 +1,39 @@
+<nav class="navbar navebar-light bg-dark">
+    <div class="container-fluid">
+        <h1 class="heading1" style="color:aliceblue" >Magic of Books</h1>  
+        <button routerLink="/display" type="button" class="btn btn-primary ">Home</button>
+        <button routerLink="/register" type="button" class="btn btn-primary ">Register</button>
+        
+    </div>
+</nav>
+
+<div *ngIf="!success" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1 style="color:#fff">Login to Continue</h1>
+                    <h6>please enter Email && Password</h6>
+                </div>
+                <form>
+                    <form #userform="ngForm" (ngSubmit)="login()">
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Username</label>
+                          <input type="text" name="user" class="form-control" required #usernameControl="ngModel" [(ngModel)]="username">
+                          <p *ngIf="usernameControl.touched && usernameControl.invalid">Username Required</p>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Password</label>
+                          <input  type="password" name="password" autocomplete="on" class="form-control" required #passwordControl="ngModel" [(ngModel)]="password">
+                          <p *ngIf ="passwordControl.touched && passwordControl.invalid">Password Required</p>
+                        </div>
+                        <p *ngIf="userform.valid && !success && onclick">Enter correct credentials</p>
+                        <button [disabled]="!userform.valid" class="btn btn-success" type="submit">Login</button><br>
+                      </form>
+                      <a routerLink="/register" style="color: #fff; margin-top: 10px;">New User? click to Register</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<h1 *ngIf="success">Already Logged In</h1>

@@ -1,0 +1,51 @@
+<nav class="navbar navebar-light bg-dark">
+    <div class="container-fluid">
+        <h1 class="heading1" style="color:aliceblue" >Magic of Books</h1>  
+        <button routerLink="/display" type="button" class="btn btn-primary ">Home</button>
+        <button routerLink="/login" type="button" class="btn btn-primary ">Login</button>
+
+    </div>
+</nav>
+
+<div *ngIf="!success" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1 style="color:#fff">Register Page</h1>
+                    <h6>Reigister your self</h6>
+                </div>
+                
+                    <form #userform="ngForm" (ngSubmit)="register()">
+                        <div class="mb-3">
+                            <label  class="form-label">UserName</label>
+                            <input  type="text" name="username" class="form-control" required #usernameControl="ngModel" [(ngModel)]="username">
+                            <p *ngIf="usernameControl.touched && usernameControl.invalid">Username required</p>
+                          </div>
+                        <div class="mb-3">
+                          <label  class="form-label">Password</label>
+                          <input type="password" name="password"  class="form-control" autocomplete="on" required #passwordControl="ngModel" [(ngModel)]="password">
+                          <p *ngIf="passwordControl.touched && passwordControl.invalid">Password required</p>
+                        </div>
+                        <div class="mb-3">
+                          <label for="email" class="form-label">Email</label>
+                          <input type="email" id="email" name="Email"  pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" class="form-control" autocomplete="on" required #EmailControl="ngModel" [(ngModel)]="Email">
+                          <p *ngIf="EmailControl.touched && EmailControl.invalid">Email required</p>
+                        </div>
+                        <div class="mb-3">
+                          <label  class="form-label">Phone Number</label>
+                          <input  type="number" name="phone" class="form-control" autocomplete="on" required #phoneControl="ngModel" [(ngModel)]="phone">
+                          <p *ngIf="phoneControl.touched && phoneControl.invalid">Phone Number required</p>
+                        </div>
+                        <p *ngIf="userform.invalid && onClick">Enter the correct credentials</p>
+                        <p *ngIf="userexist">UserAlready exists</p><br>
+                        <button [disabled]="!userform.valid" class="btn btn-success" type="submit">Register</button>
+                      </form>
+                
+                <a routerLink="/login" style="color: #fff; margin-top: 10px; text-decoration: underline;">Already registered? click to login</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 *ngIf="success">LogOut to Register for New User</h1>

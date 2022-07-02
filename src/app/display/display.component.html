@@ -1,0 +1,24 @@
+<nav class="navbar navebar-light bg-dark">
+    <div class="container-fluid">
+        <h1 class="heading1" style="color:aliceblue" >Magic of Books</h1>  
+        <button routerLink="/login" type="button" class="btn btn-primary ">Login</button>
+        <button routerLink="/register" type="button" class="btn btn-success">Register</button>
+        
+    </div>
+  </nav>
+
+<div class="container">
+    <div class="row">
+         <ng-container *ngFor="let item of book">
+             <div class="card col-md-3">
+                  <a href="{{item.link}}" target="_blank"><img class="card-img-top img-fluid" src="assets/{{item.imageLink}}"alt=""></a> 
+                  <h4  style="white-space: nowrap; overflow:hidden; text-overflow: ellipsis;"><a href="{{item.link}}" target="_blank"> {{item.title}}({{item.year}})</a></h4>
+                  <p><strong>Author :</strong>{{item.author}}</p>
+                  <p><strong>Language :</strong>{{item.language}}</p>
+                  <button (click)="wishList(item)" style="margin-bottom:5px;" class="btn btn-primary" >Add to Wishlist</button>
+                  <button (click)="completed(item)" style="margin-bottom:7px;" class="btn btn-primary" >Add to Completed</button>
+             </div>
+        </ng-container>
+    </div>
+</div>
+
