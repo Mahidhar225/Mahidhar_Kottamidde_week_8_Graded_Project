@@ -1198,6 +1198,16 @@
         2
       ],
       "Completed": []
+    },
+    {
+      "id": 7,
+      "userName": "abx",
+      "Password": "abx",
+      "Phone": 112,
+      "Email": "anx@gmail.com",
+      "Usertype": "Customer",
+      "WishList": [],
+      "Completed": []
     }
   ]
 }
